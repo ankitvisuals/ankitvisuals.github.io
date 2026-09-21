@@ -7,6 +7,7 @@
 <title>Ankit | Graphic Designer</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -122,6 +123,8 @@ section{
     margin-bottom:50px;
 }
 
+/* SERVICES */
+
 .services{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -144,6 +147,8 @@ section{
     font-size:14px;
 }
 
+/* PROJECTS */
+
 .projects{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -163,14 +168,21 @@ section{
 }
 
 .project-image{
-    height:360px;
+    min-height:360px;
     display:flex;
     align-items:center;
     justify-content:center;
     background:linear-gradient(135deg,#202027,#0f0f11);
-    color:#555;
-    font-size:14px;
-    letter-spacing:2px;
+    padding:20px;
+    overflow:hidden;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    max-height:500px;
+    object-fit:contain;
+    display:block;
 }
 
 .project-info{
@@ -186,6 +198,8 @@ section{
     font-size:14px;
 }
 
+/* ABOUT */
+
 .about{
     max-width:850px;
 }
@@ -195,6 +209,8 @@ section{
     font-size:19px;
     margin-bottom:20px;
 }
+
+/* CONTACT */
 
 .contact{
     text-align:center;
@@ -211,6 +227,8 @@ section{
     margin-bottom:30px;
 }
 
+/* FOOTER */
+
 footer{
     padding:30px 7%;
     color:#555;
@@ -218,6 +236,8 @@ footer{
     border-top:1px solid #222;
     font-size:13px;
 }
+
+/* TABLET / MOBILE */
 
 @media(max-width:800px){
 
@@ -246,7 +266,7 @@ footer{
     }
 
     .project-image{
-        height:280px;
+        min-height:280px;
     }
 
     .contact h2{
@@ -264,13 +284,21 @@ footer{
     .services{
         grid-template-columns:1fr;
     }
+
+    .project-image{
+        min-height:250px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
+
     <div class="logo">ANKIT.</div>
 
     <div>
@@ -279,13 +307,19 @@ footer{
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
     </div>
+
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="tag">Graphic Designer • Visual Creative</div>
+        <div class="tag">
+            Graphic Designer • Visual Creative
+        </div>
 
         <h1>
             DESIGN THAT<br>
@@ -298,169 +332,195 @@ footer{
             advertising to branding and product artwork.
         </p>
 
-        <a class="btn" href="#work">VIEW MY WORK →</a>
+        <a class="btn" href="#work">
+            VIEW MY WORK →
+        </a>
 
     </div>
 
 </section>
 
 
+<!-- WORK -->
+
 <section id="work">
 
-    <h2 class="section-title">Selected Work</h2>
+    <h2 class="section-title">
+        Selected Work
+    </h2>
 
     <p class="section-sub">
         A selection of creative projects and visual concepts.
     </p>
 
-  <div class="projects">
 
-    <div class="project">
-        <div class="project-image">
-            <img src="mokawai_box_designe-1.jpg" alt="Mokawai Box Design">
-        </div>
-
-        <div class="project-info">
-            <h3>Mokawai Box Design</h3>
-            <p>
-                Creative packaging and product design
-                created for brand presentation.
-            </p>
-        </div>
-    </div>
+    <div class="projects">
 
 
-    <div class="project">
-        <div class="project-image">
-            <img src="mokawai_box_designe-2.jpg" alt="Mokawai Box Design">
-        </div>
-
-        <div class="project-info">
-            <h3>Mokawai Box Design</h3>
-            <p>
-                Premium packaging design and visual presentation.
-            </p>
-        </div>
-    </div>
-
-
-    <div class="project">
-        <div class="project-image">
-            <img src="mokawai_box_designe-3.jpg" alt="Mokawai Box Design">
-        </div>
-
-        <div class="project-info">
-            <h3>Mokawai Box Design</h3>
-            <p>
-                Product packaging concept and creative artwork.
-            </p>
-        </div>
-    </div>
-
-</div>
-
+        <!-- PROJECT 1 -->
 
         <div class="project">
+
             <div class="project-image">
-                PROJECT IMAGE 02
+                <img src="mokawai_box_designe-1.jpg" alt="Mokawai Box Design 1">
             </div>
 
             <div class="project-info">
-                <h3>Brand Campaign</h3>
+
+                <h3>
+                    Mokawai Box Design
+                </h3>
+
                 <p>
-                    Modern visual campaign focused on strong
-                    branding and visual communication.
+                    Creative packaging and product design
+                    created for brand presentation.
                 </p>
+
             </div>
+
         </div>
 
 
+        <!-- PROJECT 2 -->
+
         <div class="project">
+
             <div class="project-image">
-                PROJECT IMAGE 03
+                <img src="mokawai_box_designe-2.jpg" alt="Mokawai Box Design 2">
             </div>
 
             <div class="project-info">
-                <h3>Product Advertising</h3>
+
+                <h3>
+                    Mokawai Box Design
+                </h3>
+
                 <p>
-                    Product-focused advertising creative with
-                    premium commercial art direction.
+                    Premium packaging design and visual
+                    presentation.
                 </p>
+
             </div>
+
         </div>
 
 
+        <!-- PROJECT 3 -->
+
         <div class="project">
+
             <div class="project-image">
-                PROJECT IMAGE 04
+                <img src="mokawai_box_designe-3.jpg" alt="Mokawai Box Design 3">
             </div>
 
             <div class="project-info">
-                <h3>Creative Design</h3>
+
+                <h3>
+                    Mokawai Box Design
+                </h3>
+
                 <p>
-                    Concept-driven artwork created for modern
-                    digital and commercial applications.
+                    Product packaging concept and creative
+                    artwork.
                 </p>
+
             </div>
+
         </div>
+
 
     </div>
 
 </section>
 
 
+<!-- SERVICES -->
+
 <section id="services">
 
-    <h2 class="section-title">What I Do</h2>
+    <h2 class="section-title">
+        What I Do
+    </h2>
 
     <p class="section-sub">
-        Creative solutions designed to communicate clearly and look memorable.
+        Creative solutions designed to communicate clearly
+        and look memorable.
     </p>
+
 
     <div class="services">
 
-        <div class="service">
-            <h3>01 — Social Media</h3>
-            <p>
-                Instagram posts, campaigns, promotional creatives
-                and digital advertising.
-            </p>
-        </div>
 
         <div class="service">
-            <h3>02 — Advertising</h3>
+
+            <h3>
+                01 — Social Media
+            </h3>
+
+            <p>
+                Instagram posts, campaigns, promotional
+                creatives and digital advertising.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                02 — Advertising
+            </h3>
+
             <p>
                 Creative advertisements, promotional graphics
                 and campaign visuals.
             </p>
+
         </div>
 
+
         <div class="service">
-            <h3>03 — Branding</h3>
+
+            <h3>
+                03 — Branding
+            </h3>
+
             <p>
                 Logo concepts, brand visuals and professional
                 marketing materials.
             </p>
+
         </div>
 
+
         <div class="service">
-            <h3>04 — Product Design</h3>
+
+            <h3>
+                04 — Product Design
+            </h3>
+
             <p>
                 Product artwork, packaging visuals and
                 promotional product graphics.
             </p>
+
         </div>
+
 
     </div>
 
 </section>
 
+
+<!-- ABOUT -->
 
 <section id="about">
 
     <div class="about">
 
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">
+            About Me
+        </h2>
 
         <p>
             I'm Ankit, a graphic designer focused on creating
@@ -482,9 +542,13 @@ footer{
 </section>
 
 
+<!-- CONTACT -->
+
 <section id="contact" class="contact">
 
-    <h2>LET'S CREATE.</h2>
+    <h2>
+        LET'S CREATE.
+    </h2>
 
     <p>
         Have a project in mind? Let's talk.
@@ -497,9 +561,14 @@ footer{
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
+
     © 2026 Ankit — Graphic Designer. All rights reserved.
+
 </footer>
+
 
 </body>
 </html>
