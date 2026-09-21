@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ankit | Graphic Designer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0b0d;
+    color:#f5f5f5;
+    line-height:1.6;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(11,11,13,.85);
+    backdrop-filter:blur(15px);
+    z-index:100;
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:30px;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:140px 7% 80px;
+    background:
+    radial-gradient(circle at 80% 30%,#24242c 0%,transparent 35%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.tag{
+    color:#aaa;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:clamp(55px,9vw,120px);
+    line-height:.95;
+    letter-spacing:-5px;
+    margin-bottom:30px;
+}
+
+h1 span{
+    color:#888;
+}
+
+.hero p{
+    max-width:650px;
+    color:#aaa;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 28px;
+    border:1px solid #555;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:white;
+    color:black;
+}
+
+section{
+    padding:110px 7%;
+}
+
+.section-title{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-sub{
+    color:#777;
+    margin-bottom:50px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:#292929;
+}
+
+.service{
+    background:#0b0b0d;
+    padding:35px 25px;
+    min-height:180px;
+}
+
+.service h3{
+    margin-bottom:15px;
+}
+
+.service p{
+    color:#777;
+    font-size:14px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.project{
+    background:#151519;
+    border:1px solid #242429;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+    border-color:#555;
+}
+
+.project-image{
+    height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#202027,#0f0f11);
+    color:#555;
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+.project-info{
+    padding:25px;
+}
+
+.project-info h3{
+    margin-bottom:7px;
+}
+
+.project-info p{
+    color:#777;
+    font-size:14px;
+}
+
+.about{
+    max-width:850px;
+}
+
+.about p{
+    color:#999;
+    font-size:19px;
+    margin-bottom:20px;
+}
+
+.contact{
+    text-align:center;
+    background:#111114;
+}
+
+.contact h2{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#888;
+    margin-bottom:30px;
+}
+
+footer{
+    padding:30px 7%;
+    color:#555;
+    text-align:center;
+    border-top:1px solid #222;
+    font-size:13px;
+}
+
+@media(max-width:800px){
+
+    nav{
+        padding:18px 5%;
+    }
+
+    nav div:last-child{
+        display:none;
+    }
+
+    .hero{
+        padding:130px 5% 70px;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        height:280px;
+    }
+
+    .contact h2{
+        font-size:42px;
+    }
+}
+
+@media(max-width:500px){
+
+    h1{
+        font-size:55px;
+        letter-spacing:-3px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ANKIT.</div>
+
+    <div>
+        <a href="#work">WORK</a>
+        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">Graphic Designer • Visual Creative</div>
+
+        <h1>
+            DESIGN THAT<br>
+            <span>GETS NOTICED.</span>
+        </h1>
+
+        <p>
+            I create modern visual experiences for brands,
+            businesses and digital campaigns — from social media
+            advertising to branding and product artwork.
+        </p>
+
+        <a class="btn" href="#work">VIEW MY WORK →</a>
+
+    </div>
+
+</section>
+
+
+<section id="work">
+
+    <h2 class="section-title">Selected Work</h2>
+
+    <p class="section-sub">
+        A selection of creative projects and visual concepts.
+    </p>
+
+    <div class="projects">
+
+        <div class="project">
+            <div class="project-image">
+                PROJECT IMAGE 01
+            </div>
+
+            <div class="project-info">
+                <h3>Social Media Advertising</h3>
+                <p>
+                    Premium social media campaign and advertising
+                    creative designed for digital marketing.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="project">
+            <div class="project-image">
+                PROJECT IMAGE 02
+            </div>
+
+            <div class="project-info">
+                <h3>Brand Campaign</h3>
+                <p>
+                    Modern visual campaign focused on strong
+                    branding and visual communication.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="project">
+            <div class="project-image">
+                PROJECT IMAGE 03
+            </div>
+
+            <div class="project-info">
+                <h3>Product Advertising</h3>
+                <p>
+                    Product-focused advertising creative with
+                    premium commercial art direction.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="project">
+            <div class="project-image">
+                PROJECT IMAGE 04
+            </div>
+
+            <div class="project-info">
+                <h3>Creative Design</h3>
+                <p>
+                    Concept-driven artwork created for modern
+                    digital and commercial applications.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="services">
+
+    <h2 class="section-title">What I Do</h2>
+
+    <p class="section-sub">
+        Creative solutions designed to communicate clearly and look memorable.
+    </p>
+
+    <div class="services">
+
+        <div class="service">
+            <h3>01 — Social Media</h3>
+            <p>
+                Instagram posts, campaigns, promotional creatives
+                and digital advertising.
+            </p>
+        </div>
+
+        <div class="service">
+            <h3>02 — Advertising</h3>
+            <p>
+                Creative advertisements, promotional graphics
+                and campaign visuals.
+            </p>
+        </div>
+
+        <div class="service">
+            <h3>03 — Branding</h3>
+            <p>
+                Logo concepts, brand visuals and professional
+                marketing materials.
+            </p>
+        </div>
+
+        <div class="service">
+            <h3>04 — Product Design</h3>
+            <p>
+                Product artwork, packaging visuals and
+                promotional product graphics.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="about">
+
+    <div class="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p>
+            I'm Ankit, a graphic designer focused on creating
+            clean, modern and commercially effective visual designs.
+        </p>
+
+        <p>
+            My work combines strong composition, typography and
+            visual storytelling to help brands communicate better.
+        </p>
+
+        <p>
+            I work across social media, advertising, branding,
+            product artwork and digital marketing creatives.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+    <h2>LET'S CREATE.</h2>
+
+    <p>
+        Have a project in mind? Let's talk.
+    </p>
+
+    <a class="btn" href="mailto:YOUR-EMAIL@gmail.com">
+        CONTACT ME →
+    </a>
+
+</section>
+
+
+<footer>
+    © 2026 Ankit — Graphic Designer. All rights reserved.
+</footer>
+
+</body>
+</html>
