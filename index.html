@@ -31,6 +31,8 @@ body{
     cursor:auto;
 }
 
+/* BACKGROUND */
+
 body::before{
     content:"";
     position:fixed;
@@ -58,9 +60,7 @@ body::after{
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 nav{
     position:fixed;
@@ -112,9 +112,7 @@ nav{
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -201,9 +199,7 @@ nav{
 }
 
 
-/* =========================
-   MARQUEE
-========================= */
+/* MARQUEE */
 
 .marquee{
     overflow:hidden;
@@ -239,9 +235,7 @@ nav{
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
     padding:150px 7vw;
@@ -258,104 +252,33 @@ section{
 
 
 /* =========================
-   WORK / PROJECTS
+   RESUME BUTTON
 ========================= */
 
-.work{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:110px 55px;
-    width:100%;
-}
-
-.project{
-    width:100%;
-    margin:0;
-}
-
-.project-heading{
-    display:flex;
-    align-items:baseline;
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.project-number{
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    letter-spacing:2px;
-    color:#fff;
-}
-
-.project-title{
-    font-size:clamp(25px,3vw,48px);
-    line-height:1;
-    font-weight:700;
-    letter-spacing:-2px;
-    color:#fff;
-    margin:0;
-}
-
-.project-gallery{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-}
-
-.project-gallery.single{
-    grid-template-columns:1fr;
-}
-
-.project-image{
-    width:100%;
-    overflow:hidden;
-    background:#0b0b0b;
-    border:1px solid #181818;
-}
-
-.project-image img{
-    display:block;
-    width:100%;
-    height:auto;
-
-    object-fit:contain;
-    object-position:center;
-
-    transform:none;
-    transition:none;
-}
-
-.project-image:hover img{
-    transform:none;
-}
-
-
-/* =========================
-   RESUME
-========================= */
-
-.resume-wrap{
+.resume-area{
     display:flex;
     justify-content:center;
-    padding:80px 0 0;
+
+    margin-bottom:120px;
 }
 
 .resume-button{
-    display:inline-flex;
+    display:flex;
     align-items:center;
-    gap:14px;
+    justify-content:center;
+    gap:18px;
+
+    width:320px;
+    min-height:75px;
 
     color:#fff;
     text-decoration:none;
 
-    border:1px solid #303030;
-
-    padding:18px 28px;
+    border:1px solid #555;
 
     font-family:"DM Mono",monospace;
-    font-size:11px;
-    letter-spacing:2px;
+    font-size:13px;
+    letter-spacing:3px;
 
     transition:.25s ease;
 }
@@ -365,11 +288,190 @@ section{
     color:#050505;
 }
 
-.resume-modal{
+
+/* =========================
+   PROJECT GRID
+========================= */
+
+.work{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:120px 55px;
+
+    width:100%;
+}
+
+.project{
+    width:100%;
+}
+
+.project-heading{
+    display:flex;
+    align-items:baseline;
+
+    gap:18px;
+
+    margin-bottom:30px;
+}
+
+.project-number{
+    font-family:"DM Mono",monospace;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    color:#fff;
+}
+
+.project-title{
+    font-size:clamp(28px,3vw,48px);
+
+    line-height:1;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+
+    color:#fff;
+}
+
+
+/* PROJECT IMAGES */
+
+.project-gallery{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:14px;
+}
+
+.project-gallery.single{
+    grid-template-columns:1fr;
+}
+
+.project-image{
+    width:100%;
+
+    overflow:hidden;
+
+    background:#0b0b0b;
+
+    border:1px solid #181818;
+
+    cursor:pointer;
+}
+
+.project-image img{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    object-fit:contain;
+
+    transform:none;
+
+    transition:none;
+}
+
+.project-image:hover img{
+    transform:none;
+}
+
+
+/* =========================
+   IMAGE VIEWER
+========================= */
+
+.image-viewer{
     position:fixed;
+
     inset:0;
 
-    z-index:2000;
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:40px;
+
+    background:rgba(0,0,0,.96);
+}
+
+.image-viewer.open{
+    display:flex;
+}
+
+.image-viewer-content{
+    width:min(1200px,95vw);
+
+    max-height:92vh;
+
+    overflow:auto;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:center;
+}
+
+.image-viewer-content img{
+    width:auto;
+
+    max-width:100%;
+
+    height:auto;
+
+    max-height:none;
+
+    display:block;
+}
+
+.image-close{
+    position:fixed;
+
+    top:20px;
+
+    right:25px;
+
+    z-index:3001;
+
+    width:50px;
+    height:50px;
+
+    border:1px solid #555;
+
+    background:#050505;
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   RESUME VIEWER
+========================= */
+
+.resume-viewer{
+    position:fixed;
+
+    inset:0;
+
+    z-index:4000;
 
     display:none;
 
@@ -378,17 +480,16 @@ section{
 
     padding:30px;
 
-    background:rgba(0,0,0,.92);
+    background:rgba(0,0,0,.96);
 }
 
-.resume-modal.open{
+.resume-viewer.open{
     display:flex;
 }
 
-.resume-view{
-    position:relative;
-
+.resume-content{
     width:min(1000px,95vw);
+
     max-height:94vh;
 
     overflow:auto;
@@ -398,38 +499,39 @@ section{
     border:1px solid #333;
 }
 
-.resume-view img{
+.resume-content img{
     display:block;
 
     width:100%;
+
     height:auto;
 }
 
 .resume-close{
     position:fixed;
 
-    top:22px;
-    right:28px;
+    top:20px;
 
-    z-index:2001;
+    right:25px;
 
-    width:42px;
-    height:42px;
+    z-index:4001;
+
+    width:50px;
+    height:50px;
 
     border:1px solid #555;
 
     background:#050505;
+
     color:#fff;
 
-    font-size:22px;
+    font-size:28px;
 
     cursor:pointer;
 }
 
 
-/* =========================
-   SERVICES
-========================= */
+/* SERVICES */
 
 .services{
     border-top:1px solid #181818;
@@ -441,7 +543,9 @@ section{
 
 .service{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:30px 0;
@@ -453,13 +557,17 @@ section{
 
 .service-number{
     font-family:"DM Mono",monospace;
+
     color:#fff;
+
     font-size:12px;
 }
 
 .service-name{
     font-size:clamp(30px,5vw,70px);
+
     font-weight:600;
+
     letter-spacing:-3px;
 
     color:#fff;
@@ -469,6 +577,7 @@ section{
 
 .service-arrow{
     font-size:25px;
+
     color:#fff;
 
     transition:.4s ease;
@@ -479,20 +588,19 @@ section{
 }
 
 .service:hover .service-arrow{
-    color:#fff;
     transform:translateX(-10px);
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 
 .about{
     min-height:80vh;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
 
     border-top:1px solid #181818;
@@ -500,8 +608,11 @@ section{
 
 .about-text{
     font-size:clamp(35px,6vw,85px);
+
     line-height:1;
+
     font-weight:600;
+
     letter-spacing:-4px;
 
     max-width:1200px;
@@ -514,16 +625,17 @@ section{
 }
 
 
-/* =========================
-   CONTACT
-========================= */
+/* CONTACT */
 
 .contact{
     min-height:90vh;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -533,8 +645,11 @@ section{
 
 .contact-small{
     font-family:"DM Mono",monospace;
+
     font-size:11px;
+
     letter-spacing:4px;
+
     color:#fff;
 
     margin-bottom:35px;
@@ -542,9 +657,11 @@ section{
 
 .contact-title{
     font-size:clamp(50px,10vw,150px);
+
     line-height:.85;
 
     font-weight:800;
+
     letter-spacing:-7px;
 
     margin-bottom:60px;
@@ -558,33 +675,26 @@ section{
     font-size:clamp(15px,2vw,22px);
 
     color:#fff;
+
     text-decoration:none;
 
     border-bottom:1px solid #fff;
 
     padding-bottom:10px;
-
-    transition:.3s ease;
-}
-
-.contact-email:hover{
-    color:#fff;
-    border-color:#fff;
 }
 
 .contact-phone{
     margin-top:25px;
 
     font-family:"DM Mono",monospace;
+
     font-size:13px;
 
     color:#fff;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     padding:30px 7vw;
@@ -592,44 +702,26 @@ footer{
     border-top:1px solid #181818;
 
     display:flex;
+
     justify-content:space-between;
 
     font-family:"DM Mono",monospace;
+
     font-size:10px;
+
     letter-spacing:2px;
 
     color:#fff;
 }
 
 
-/* =========================
-   REVEAL
-========================= */
-
-.reveal{
-    opacity:1;
-    transform:none;
-    transition:none;
-}
-
-.reveal.visible{
-    opacity:1;
-    transform:none;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:768px){
 
-    body{
-        cursor:auto;
-    }
-
     nav{
         height:70px;
+
         padding:0 20px;
     }
 
@@ -647,6 +739,7 @@ footer{
 
     .hero-title{
         font-size:18vw;
+
         letter-spacing:-4px;
     }
 
@@ -656,6 +749,7 @@ footer{
 
     .hero-bottom{
         margin-top:50px;
+
         font-size:9px;
     }
 
@@ -667,38 +761,70 @@ footer{
         margin-bottom:50px;
     }
 
+
+    /* RESUME */
+
+    .resume-area{
+        margin-bottom:90px;
+    }
+
+    .resume-button{
+        width:100%;
+
+        min-height:70px;
+    }
+
+
+    /* PROJECTS */
+
     .work{
         grid-template-columns:1fr;
-        gap:80px;
+
+        gap:90px;
     }
 
     .project-heading{
-        margin-bottom:18px;
+        margin-bottom:20px;
     }
 
     .project-title{
         font-size:32px;
+
         letter-spacing:-1.5px;
     }
 
     .project-gallery{
         grid-template-columns:1fr;
-        gap:14px;
+
+        gap:15px;
     }
 
     .project-image{
         width:100%;
     }
 
-    .project-image img{
-        width:100%;
-        height:auto;
-        object-fit:contain;
+
+    /* IMAGE VIEWER */
+
+    .image-viewer{
+        padding:15px;
     }
 
-    .resume-wrap{
-        padding-top:50px;
+    .image-viewer-content{
+        width:100%;
     }
+
+    .image-close,
+    .resume-close{
+        width:42px;
+        height:42px;
+
+        top:15px;
+        right:15px;
+
+        font-size:22px;
+    }
+
 
     .service{
         gap:15px;
@@ -706,6 +832,7 @@ footer{
 
     .service-name{
         font-size:30px;
+
         letter-spacing:-1.5px;
     }
 
@@ -715,16 +842,19 @@ footer{
 
     .about-text{
         font-size:11vw;
+
         letter-spacing:-2px;
     }
 
     .contact-title{
         font-size:17vw;
+
         letter-spacing:-4px;
     }
 
     footer{
         padding:25px 20px;
+
         font-size:8px;
     }
 
@@ -784,7 +914,6 @@ footer{
 
     </h1>
 
-
     <div class="hero-bottom">
 
         <div>
@@ -829,6 +958,21 @@ footer{
     </div>
 
 
+    <!-- RESUME BUTTON FIRST -->
+
+    <div class="resume-area">
+
+        <a
+            href="#"
+            class="resume-button"
+            id="resumeButton"
+        >
+            VIEW MY RESUME <span>↗</span>
+        </a>
+
+    </div>
+
+
     <div class="work">
 
 
@@ -860,7 +1004,6 @@ footer{
 
                 </div>
 
-
                 <div class="project-image">
 
                     <img
@@ -869,7 +1012,6 @@ footer{
                     >
 
                 </div>
-
 
                 <div class="project-image">
 
@@ -914,7 +1056,6 @@ footer{
 
                 </div>
 
-
                 <div class="project-image">
 
                     <img
@@ -923,7 +1064,6 @@ footer{
                     >
 
                 </div>
-
 
                 <div class="project-image">
 
@@ -1111,43 +1251,51 @@ footer{
 
     </div>
 
-
-    <!-- RESUME BUTTON -->
-
-    <div class="resume-wrap">
-
-        <a
-            href="#"
-            class="resume-button"
-            id="resumeButton"
-        >
-            VIEW RESUME <span>↗</span>
-        </a>
-
-    </div>
-
 </section>
 
 
-
-<!-- RESUME POPUP -->
+<!-- IMAGE VIEWER -->
 
 <div
-    class="resume-modal"
-    id="resumeModal"
-    aria-hidden="true"
+    class="image-viewer"
+    id="imageViewer"
+>
+
+    <button
+        class="image-close"
+        id="imageClose"
+    >
+        ×
+    </button>
+
+    <div class="image-viewer-content">
+
+        <img
+            id="viewerImage"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+</div>
+
+
+<!-- RESUME VIEWER -->
+
+<div
+    class="resume-viewer"
+    id="resumeViewer"
 >
 
     <button
         class="resume-close"
         id="resumeClose"
-        aria-label="Close resume"
     >
         ×
     </button>
 
-
-    <div class="resume-view">
+    <div class="resume-content">
 
         <img
             src="ANKIT PANDEY Graphic Designer Resume.jpg"
@@ -1157,7 +1305,6 @@ footer{
     </div>
 
 </div>
-
 
 
 <!-- SERVICES -->
@@ -1248,7 +1395,6 @@ footer{
 </section>
 
 
-
 <!-- ABOUT -->
 
 <section
@@ -1271,7 +1417,6 @@ footer{
     </div>
 
 </section>
-
 
 
 <!-- CONTACT -->
@@ -1313,7 +1458,6 @@ footer{
 </section>
 
 
-
 <!-- FOOTER -->
 
 <footer>
@@ -1329,16 +1473,80 @@ footer{
 </footer>
 
 
-
-<!-- RESUME JAVASCRIPT -->
-
 <script>
+
+/* =========================
+   IMAGE CLICK / VIEWER
+========================= */
+
+const imageViewer =
+    document.getElementById("imageViewer");
+
+const viewerImage =
+    document.getElementById("viewerImage");
+
+const imageClose =
+    document.getElementById("imageClose");
+
+
+document.querySelectorAll(".project-image img")
+.forEach(function(image){
+
+    image.addEventListener("click",function(){
+
+        viewerImage.src = this.src;
+
+        viewerImage.alt = this.alt;
+
+        imageViewer.classList.add("open");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+function closeImageViewer(){
+
+    imageViewer.classList.remove("open");
+
+    viewerImage.src = "";
+
+    document.body.style.overflow = "";
+
+}
+
+
+imageClose.addEventListener(
+    "click",
+    closeImageViewer
+);
+
+
+imageViewer.addEventListener(
+    "click",
+    function(e){
+
+        if(e.target === imageViewer){
+
+            closeImageViewer();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   RESUME
+========================= */
 
 const resumeButton =
     document.getElementById("resumeButton");
 
-const resumeModal =
-    document.getElementById("resumeModal");
+const resumeViewer =
+    document.getElementById("resumeViewer");
 
 const resumeClose =
     document.getElementById("resumeClose");
@@ -1350,12 +1558,7 @@ resumeButton.addEventListener(
 
         e.preventDefault();
 
-        resumeModal.classList.add("open");
-
-        resumeModal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+        resumeViewer.classList.add("open");
 
         document.body.style.overflow = "hidden";
 
@@ -1365,12 +1568,7 @@ resumeButton.addEventListener(
 
 function closeResume(){
 
-    resumeModal.classList.remove("open");
-
-    resumeModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+    resumeViewer.classList.remove("open");
 
     document.body.style.overflow = "";
 
@@ -1383,11 +1581,11 @@ resumeClose.addEventListener(
 );
 
 
-resumeModal.addEventListener(
+resumeViewer.addEventListener(
     "click",
     function(e){
 
-        if(e.target === resumeModal){
+        if(e.target === resumeViewer){
 
             closeResume();
 
@@ -1397,14 +1595,17 @@ resumeModal.addEventListener(
 );
 
 
+/* =========================
+   ESCAPE KEY
+========================= */
+
 document.addEventListener(
     "keydown",
     function(e){
 
-        if(
-            e.key === "Escape" &&
-            resumeModal.classList.contains("open")
-        ){
+        if(e.key === "Escape"){
+
+            closeImageViewer();
 
             closeResume();
 
@@ -1418,4 +1619,3 @@ document.addEventListener(
 
 </body>
 </html>
-
