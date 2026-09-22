@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZPLZMGXM4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BZPLZMGXM4');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,11 +40,6 @@ body{
     overflow-x:hidden;
 }
 
-
-/* =========================
-   BACKGROUND GRID
-========================= */
-
 body::before{
     content:"";
     position:fixed;
@@ -49,11 +54,6 @@ body::before{
     background-size:80px 80px;
 }
 
-
-/* =========================
-   STARS
-========================= */
-
 .stars{
     position:fixed;
     inset:0;
@@ -64,12 +64,9 @@ body::before{
 
 .star{
     position:absolute;
-
     width:2px;
     height:2px;
-
     border-radius:50%;
-
     background:#fff;
 
     box-shadow:
@@ -105,11 +102,6 @@ body::before{
 
 }
 
-
-/* =========================
-   NAV
-========================= */
-
 nav{
     position:fixed;
     top:0;
@@ -135,13 +127,9 @@ nav{
 
 .logo{
     font-family:"DM Mono",monospace;
-
     font-size:18px;
-
     letter-spacing:3px;
-
     font-weight:500;
-
     color:#fff;
 }
 
@@ -161,11 +149,6 @@ nav{
     letter-spacing:2px;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 .hero{
     min-height:100vh;
 
@@ -184,13 +167,9 @@ nav{
 
 .hero-small{
     font-family:"DM Mono",monospace;
-
     font-size:12px;
-
     letter-spacing:4px;
-
     color:#fff;
-
     margin-bottom:35px;
 }
 
@@ -210,11 +189,8 @@ nav{
 
 .hero-title .small-line{
     display:block;
-
     font-size:.34em;
-
     letter-spacing:-2px;
-
     margin-left:0;
 }
 
@@ -262,9 +238,7 @@ nav{
 
 .scroll-line{
     display:flex;
-
     align-items:center;
-
     gap:12px;
 }
 
@@ -272,16 +246,10 @@ nav{
     display:block;
 
     width:50px;
-
     height:1px;
 
     background:#fff;
 }
-
-
-/* =========================
-   MARQUEE
-========================= */
 
 .marquee{
     overflow:hidden;
@@ -289,7 +257,6 @@ nav{
     white-space:nowrap;
 
     border-top:1px solid #161616;
-
     border-bottom:1px solid #161616;
 
     padding:25px 0;
@@ -321,11 +288,6 @@ nav{
 
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
-
 section{
     padding:150px 7vw;
 }
@@ -341,11 +303,6 @@ section{
 
     margin-bottom:70px;
 }
-
-
-/* =========================
-   RESUME
-========================= */
 
 .resume-area{
     display:flex;
@@ -408,11 +365,6 @@ section{
     box-shadow:
         0 0 35px rgba(255,255,255,.20);
 }
-
-
-/* =========================
-   PROJECT GRID
-========================= */
 
 .work{
     display:grid;
@@ -498,11 +450,6 @@ section{
     object-fit:contain;
 }
 
-
-/* =========================
-   PROJECT VIEWER
-========================= */
-
 .project-viewer{
     position:fixed;
 
@@ -579,11 +526,6 @@ section{
     cursor:pointer;
 }
 
-
-/* =========================
-   RESUME VIEWER
-========================= */
-
 .resume-viewer{
     position:fixed;
 
@@ -646,11 +588,6 @@ section{
     cursor:pointer;
 }
 
-
-/* =========================
-   SERVICES
-========================= */
-
 .services{
     border-top:1px solid #181818;
 }
@@ -697,11 +634,6 @@ section{
     color:#fff;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
-
 .about{
     min-height:80vh;
 
@@ -731,11 +663,6 @@ section{
 .about-text span{
     color:#fff;
 }
-
-
-/* =========================
-   CONTACT
-========================= */
 
 .contact{
     min-height:90vh;
@@ -803,11 +730,6 @@ section{
     color:#fff;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
     padding:30px 7vw;
 
@@ -825,11 +747,6 @@ footer{
 
     color:#fff;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:768px){
 
@@ -969,13 +886,7 @@ footer{
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     STARS
-========================= -->
 
 <div class="stars">
 
@@ -1003,11 +914,6 @@ footer{
 
 </div>
 
-
-<!-- =========================
-     NAV
-========================= -->
-
 <nav>
 
     <div class="logo">
@@ -1027,11 +933,6 @@ footer{
     </div>
 
 </nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <header class="hero">
 
@@ -1074,11 +975,6 @@ footer{
 
 </header>
 
-
-<!-- =========================
-     MARQUEE
-========================= -->
-
 <div class="marquee">
 
     <div class="marquee-track">
@@ -1091,19 +987,11 @@ footer{
 
 </div>
 
-
-<!-- =========================
-     WORK
-========================= -->
-
 <section id="work">
 
     <div class="section-label">
         SELECTED WORK / 01
     </div>
-
-
-    <!-- RESUME -->
 
     <div class="resume-area">
 
@@ -1121,13 +1009,7 @@ footer{
 
     </div>
 
-
     <div class="work">
-
-
-        <!-- =====================
-             01 COFFEE CUP
-        ====================== -->
 
         <div class="project">
 
@@ -1179,11 +1061,6 @@ footer{
 
         </div>
 
-
-        <!-- =====================
-             02 MOKAWAI
-        ====================== -->
-
         <div class="project">
 
             <div class="project-heading">
@@ -1234,11 +1111,6 @@ footer{
 
         </div>
 
-
-        <!-- =====================
-             03 INSTAGRAM
-        ====================== -->
-
         <div class="project">
 
             <div class="project-heading">
@@ -1270,11 +1142,6 @@ footer{
             </div>
 
         </div>
-
-
-        <!-- =====================
-             04 HEADPHONE
-        ====================== -->
 
         <div class="project">
 
@@ -1308,11 +1175,6 @@ footer{
 
         </div>
 
-
-        <!-- =====================
-             05 BURGER
-        ====================== -->
-
         <div class="project">
 
             <div class="project-heading">
@@ -1344,11 +1206,6 @@ footer{
             </div>
 
         </div>
-
-
-        <!-- =====================
-             06 FASHION
-        ====================== -->
 
         <div class="project">
 
@@ -1382,11 +1239,6 @@ footer{
 
         </div>
 
-
-        <!-- =====================
-             07 COFFEE BRANDING
-        ====================== -->
-
         <div class="project">
 
             <div class="project-heading">
@@ -1419,15 +1271,9 @@ footer{
 
         </div>
 
-
     </div>
 
 </section>
-
-
-<!-- =========================
-     PROJECT VIEWER
-========================= -->
 
 <div
     class="project-viewer"
@@ -1452,11 +1298,6 @@ footer{
 
 </div>
 
-
-<!-- =========================
-     RESUME VIEWER
-========================= -->
-
 <div
     class="resume-viewer"
     id="resumeViewer"
@@ -1479,11 +1320,6 @@ footer{
     </div>
 
 </div>
-
-
-<!-- =========================
-     SERVICES
-========================= -->
 
 <section
     class="services"
@@ -1512,7 +1348,6 @@ footer{
 
         </div>
 
-
         <div class="service">
 
             <div class="service-number">
@@ -1529,7 +1364,6 @@ footer{
 
         </div>
 
-
         <div class="service">
 
             <div class="service-number">
@@ -1545,7 +1379,6 @@ footer{
             </div>
 
         </div>
-
 
         <div class="service">
 
@@ -1567,11 +1400,6 @@ footer{
 
 </section>
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
 <section
     class="about"
     id="about"
@@ -1591,11 +1419,6 @@ footer{
     </div>
 
 </section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
 
 <section
     class="contact"
@@ -1630,11 +1453,6 @@ footer{
 
 </section>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
     <div>
@@ -1647,12 +1465,7 @@ footer{
 
 </footer>
 
-
 <script>
-
-/* =========================
-   PROJECT VIEWER
-========================= */
 
 const projectViewer =
     document.getElementById("projectViewer");
@@ -1662,7 +1475,6 @@ const projectViewerImages =
 
 const projectClose =
     document.getElementById("projectClose");
-
 
 document
 .querySelectorAll(".project-gallery")
@@ -1678,12 +1490,10 @@ document
 
                 projectViewerImages.innerHTML = "";
 
-
                 const projectImages =
                     gallery.querySelectorAll(
                         ".project-image img"
                     );
-
 
                 projectImages.forEach(
                     function(projectImage){
@@ -1704,18 +1514,15 @@ document
                     }
                 );
 
-
                 projectViewer.classList.add("open");
 
                 document.body.style.overflow =
                     "hidden";
 
-
                 const clickedIndex =
                     Array.from(
                         projectImages
                     ).indexOf(image);
-
 
                 setTimeout(
                     function(){
@@ -1747,7 +1554,6 @@ document
 
 });
 
-
 function closeProjectViewer(){
 
     projectViewer.classList.remove("open");
@@ -1758,12 +1564,10 @@ function closeProjectViewer(){
 
 }
 
-
 projectClose.addEventListener(
     "click",
     closeProjectViewer
 );
-
 
 projectViewer.addEventListener(
     "click",
@@ -1778,11 +1582,6 @@ projectViewer.addEventListener(
     }
 );
 
-
-/* =========================
-   RESUME VIEWER
-========================= */
-
 const resumeButton =
     document.getElementById("resumeButton");
 
@@ -1791,7 +1590,6 @@ const resumeViewer =
 
 const resumeClose =
     document.getElementById("resumeClose");
-
 
 resumeButton.addEventListener(
     "click",
@@ -1807,7 +1605,6 @@ resumeButton.addEventListener(
     }
 );
 
-
 function closeResume(){
 
     resumeViewer.classList.remove("open");
@@ -1816,12 +1613,10 @@ function closeResume(){
 
 }
 
-
 resumeClose.addEventListener(
     "click",
     closeResume
 );
-
 
 resumeViewer.addEventListener(
     "click",
@@ -1835,11 +1630,6 @@ resumeViewer.addEventListener(
 
     }
 );
-
-
-/* =========================
-   ESC KEY
-========================= */
 
 document.addEventListener(
     "keydown",
