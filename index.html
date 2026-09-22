@@ -4,111 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ankit Pandey — Visual Designer</title>
+<title>Ankit — Visual Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#080808;
-  color:#f5f5f5;
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
-  cursor:none;
-}
-
-/* =========================
-   CURSOR
-========================= */
-
-.cursor{
-  position:fixed;
-  width:8px;
-  height:8px;
-  background:#fff;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9999;
-  transform:translate(-50%,-50%);
-}
-
-.cursor-ring{
-  position:fixed;
-  width:38px;
-  height:38px;
-  border:1px solid rgba(255,255,255,.5);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:
-    width .25s ease,
-    height .25s ease,
-    border-color .25s ease;
-}
-
-.cursor-glow{
-  position:fixed;
-  width:280px;
-  height:280px;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:0;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(
-    circle,
-    rgba(255,255,255,.16) 0%,
-    rgba(255,255,255,.07) 25%,
-    rgba(255,255,255,.025) 48%,
-    transparent 72%
-  );
-  filter:blur(12px);
-  opacity:.75;
+    background:#050505;
+    color:#f5f5f5;
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+    cursor:none;
 }
 
 /* =========================
    BACKGROUND
 ========================= */
 
-.grid{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.055;
-  z-index:-2;
-  background-image:
-    linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);
-  background-size:80px 80px;
-  mask-image:linear-gradient(to bottom,black,transparent 90%);
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-3;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+    background-size:80px 80px;
 }
 
-.noise{
-  position:fixed;
-  inset:-50%;
-  pointer-events:none;
-  z-index:50;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-  animation:noiseMove .25s steps(2) infinite;
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+
+    opacity:.035;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
-@keyframes noiseMove{
-  0%{transform:translate(0,0)}
-  25%{transform:translate(2%, -1%)}
-  50%{transform:translate(-1%, 2%)}
-  75%{transform:translate(1%, 1%)}
-  100%{transform:translate(-2%, -2%)}
+/* =========================
+   CURSOR
+========================= */
+
+.cursor-dot{
+    position:fixed;
+    width:7px;
+    height:7px;
+    background:#fff;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+}
+
+.cursor-ring{
+    position:fixed;
+    width:34px;
+    height:34px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    transition:
+        width .25s ease,
+        height .25s ease,
+        border-color .25s ease;
+}
+
+.cursor-glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:-1;
+
+    background:radial-gradient(
+        circle,
+        rgba(150,200,255,.16) 0%,
+        rgba(150,200,255,.06) 25%,
+        transparent 70%
+    );
+
+    transform:translate(-50%,-50%);
+    opacity:.75;
 }
 
 /* =========================
@@ -116,46 +115,51 @@ body{
 ========================= */
 
 nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:82px;
-  padding:0 5vw;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  z-index:1000;
-  mix-blend-mode:normal;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5vw;
+
+    z-index:1000;
+
+    background:rgba(5,5,5,.55);
+    backdrop-filter:blur(16px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  opacity:.35;
+    font-family:"DM Mono",monospace;
+    font-size:18px;
+    letter-spacing:3px;
+    font-weight:500;
 }
 
 .nav-links{
-  display:flex;
-  gap:34px;
+    display:flex;
+    gap:35px;
 }
 
 .nav-links a{
-  color:#fff;
-  text-decoration:none;
-  font-family:"DM Mono",monospace;
-  font-size:11px;
-  letter-spacing:1px;
-  opacity:.55;
-  transition:.3s;
+    color:#aaa;
+    text-decoration:none;
+
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:2px;
+
+    transition:.3s ease;
 }
 
 .nav-links a:hover{
-  opacity:1;
+    color:#fff;
 }
 
 /* =========================
@@ -163,149 +167,99 @@ nav{
 ========================= */
 
 .hero{
-  min-height:100vh;
-  padding:150px 5vw 70px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  position:relative;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:140px 7vw 80px;
+
+    position:relative;
 }
 
 .hero-small{
-  font-family:"DM Mono",monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  opacity:.45;
-  margin-bottom:35px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+    letter-spacing:4px;
+    color:#777;
 
-.hero-small::before{
-  content:"";
-  width:34px;
-  height:1px;
-  background:#fff;
-  opacity:.5;
+    margin-bottom:35px;
 }
 
 .hero-title{
-  line-height:.82;
-  letter-spacing:-.075em;
-  font-weight:900;
-  font-size:clamp(70px,13vw,190px);
-  max-width:1400px;
+    font-size:clamp(60px,11vw,180px);
+    line-height:.82;
+    font-weight:800;
+    letter-spacing:-8px;
+    max-width:1300px;
 }
 
-.hero-line{
-  display:block;
-  overflow:hidden;
-}
-
-.hero-line span{
-  display:inline-block;
-  transform:translateY(110%);
-  animation:titleIn 1.2s cubic-bezier(.16,1,.3,1) forwards;
-}
-
-.hero-line:nth-child(2) span{
-  animation-delay:.12s;
-}
-
-.hero-line:nth-child(3) span{
-  animation-delay:.24s;
-}
-
-@keyframes titleIn{
-  to{
-    transform:translateY(0);
-  }
+.hero-title .small-line{
+    display:block;
+    font-size:.34em;
+    letter-spacing:-2px;
+    margin-left:7px;
 }
 
 .gradient-word{
-  position:relative;
-  display:inline-block;
-  color:transparent;
-  background:
-    linear-gradient(
-      110deg,
-      #777 0%,
-      #fff 25%,
-      #bdbdbd 38%,
-      #fff 50%,
-      #666 72%,
-      #fff 100%
+    display:block;
+
+    background:linear-gradient(
+        110deg,
+        #ffffff 0%,
+        #ffffff 20%,
+        #8abfff 45%,
+        #ffffff 65%,
+        #ffffff 100%
     );
-  background-size:250% 100%;
-  background-position:0% 50%;
-  -webkit-background-clip:text;
-  background-clip:text;
-  animation:gradientMove 4s linear infinite;
+
+    background-size:250% auto;
+
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    animation:gradientMove 4s linear infinite;
 }
 
 @keyframes gradientMove{
-  0%{
-    background-position:0% 50%;
-  }
-  70%{
-    background-position:100% 50%;
-  }
-  78%{
-    background-position:120% 50%;
-  }
-  100%{
-    background-position:0% 50%;
-  }
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:250% center;
+    }
+
 }
 
 .hero-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-top:70px;
-}
+    margin-top:70px;
 
-.hero-description{
-  max-width:390px;
-  font-size:14px;
-  line-height:1.7;
-  color:#888;
-}
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
 
-.scroll-indicator{
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  letter-spacing:2px;
-  opacity:.5;
-  display:flex;
-  gap:12px;
-  align-items:center;
+    font-family:"DM Mono",monospace;
+    color:#777;
+
+    font-size:11px;
+    letter-spacing:2px;
 }
 
 .scroll-line{
-  width:55px;
-  height:1px;
-  background:#fff;
-  position:relative;
-  overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.scroll-line::after{
-  content:"";
-  position:absolute;
-  left:-100%;
-  top:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  animation:scrollLine 2s infinite;
-}
-
-@keyframes scrollLine{
-  to{
-    left:100%;
-  }
+.scroll-line span{
+    display:block;
+    width:50px;
+    height:1px;
+    background:#555;
 }
 
 /* =========================
@@ -313,65 +267,52 @@ nav{
 ========================= */
 
 .marquee{
-  border-top:1px solid #222;
-  border-bottom:1px solid #222;
-  overflow:hidden;
-  white-space:nowrap;
-  padding:22px 0;
+    overflow:hidden;
+    white-space:nowrap;
+
+    border-top:1px solid #161616;
+    border-bottom:1px solid #161616;
+
+    padding:25px 0;
+
+    font-family:"DM Mono",monospace;
+    font-size:13px;
+    letter-spacing:5px;
+    color:#777;
 }
 
 .marquee-track{
-  display:inline-flex;
-  animation:marquee 20s linear infinite;
-}
-
-.marquee span{
-  font-size:13px;
-  font-weight:600;
-  letter-spacing:2px;
-  margin-right:55px;
-  color:#777;
-}
-
-.marquee span strong{
-  color:#fff;
+    display:inline-block;
+    animation:marquee 25s linear infinite;
 }
 
 @keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
 }
 
 /* =========================
-   GENERAL
+   SECTIONS
 ========================= */
 
 section{
-  position:relative;
+    padding:150px 7vw;
 }
 
-.section{
-  padding:150px 5vw;
-}
+.section-label{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#666;
 
-.section-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:start;
-  margin-bottom:90px;
-}
-
-.section-number{
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  color:#555;
-}
-
-.section-title{
-  font-size:clamp(42px,6vw,85px);
-  line-height:.95;
-  letter-spacing:-.055em;
-  font-weight:800;
+    margin-bottom:70px;
 }
 
 /* =========================
@@ -379,138 +320,77 @@ section{
 ========================= */
 
 .work{
-  padding-top:170px;
-}
-
-.projects{
-  display:flex;
-  flex-direction:column;
-  gap:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 .project{
-  position:relative;
-  width:100%;
-  min-height:620px;
-  display:flex;
-  align-items:center;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    margin-bottom:180px;
 }
 
-.project:nth-child(even){
-  justify-content:flex-end;
+.project-gallery{
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:55px;
 }
 
 .project-image{
-  width:min(68vw,900px);
-  position:relative;
-  overflow:hidden;
-  background:#111;
-  transform:translateY(80px);
-  opacity:0;
-  transition:
-    transform 1.2s cubic-bezier(.16,1,.3,1),
-    opacity 1s ease;
+    width:min(88vw,1050px);
+
+    opacity:0;
+    transform:translateY(70px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
+
+    overflow:hidden;
+
+    background:#0b0b0b;
 }
 
-.project.visible .project-image{
-  transform:translateY(0);
-  opacity:1;
+.project-image.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .project-image img{
-  display:block;
-  width:100%;
-  height:auto;
-  transition:transform 1.2s cubic-bezier(.16,1,.3,1);
+    display:block;
+    width:100%;
+    height:auto;
+
+    transform:scale(1);
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
 }
 
-.project:hover .project-image img{
-  transform:scale(1.045);
+.project-image:hover img{
+    transform:scale(1.025);
 }
 
-.project-info{
-  position:absolute;
-  z-index:4;
-  left:7%;
-  bottom:8%;
-  mix-blend-mode:normal;
+/* stagger animation */
+
+.project-image:nth-child(1){
+    transition-delay:.05s;
 }
 
-.project:nth-child(even) .project-info{
-  left:auto;
-  right:7%;
-  text-align:right;
+.project-image:nth-child(2){
+    transition-delay:.15s;
 }
 
-.project-number{
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  color:#aaa;
-  margin-bottom:15px;
-}
-
-.project-name{
-  font-size:clamp(32px,4vw,65px);
-  font-weight:800;
-  letter-spacing:-.06em;
-  line-height:.9;
-  text-shadow:0 5px 25px rgba(0,0,0,.7);
-}
-
-.project-type{
-  margin-top:14px;
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  letter-spacing:1px;
-  color:#aaa;
-}
-
-.project-arrow{
-  display:inline-block;
-  margin-left:8px;
-  transition:.4s;
-}
-
-.project:hover .project-arrow{
-  transform:translate(8px,-8px);
-}
-
-/* second and third layouts */
-
-.project:nth-child(2) .project-image{
-  width:min(60vw,800px);
-  transform:translateY(100px) rotate(1.5deg);
-}
-
-.project:nth-child(2).visible .project-image{
-  transform:translateY(0) rotate(1.5deg);
-}
-
-.project:nth-child(3) .project-image{
-  width:min(55vw,720px);
-  transform:translateY(100px) rotate(-1.5deg);
-}
-
-.project:nth-child(3).visible .project-image{
-  transform:translateY(0) rotate(-1.5deg);
-}
-
-/* floating labels */
-
-.project::before{
-  content:"SELECTED / WORK";
-  position:absolute;
-  top:0;
-  left:0;
-  font-family:"DM Mono",monospace;
-  font-size:9px;
-  letter-spacing:2px;
-  color:#444;
-}
-
-.project:nth-child(even)::before{
-  left:auto;
-  right:0;
+.project-image:nth-child(3){
+    transition-delay:.25s;
 }
 
 /* =========================
@@ -518,54 +398,53 @@ section{
 ========================= */
 
 .services{
-  border-top:1px solid #222;
+    border-top:1px solid #181818;
 }
 
 .service-list{
-  border-top:1px solid #222;
+    width:100%;
 }
 
 .service{
-  display:grid;
-  grid-template-columns:80px 1fr 1fr 50px;
-  gap:30px;
-  padding:32px 0;
-  border-bottom:1px solid #222;
-  align-items:center;
-  transition:.4s;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:30px 0;
+
+    border-bottom:1px solid #181818;
+
+    transition:.4s ease;
 }
 
-.service:hover{
-  padding-left:20px;
-  background:rgba(255,255,255,.02);
-}
-
-.service-num{
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  color:#555;
+.service-number{
+    font-family:"DM Mono",monospace;
+    color:#555;
+    font-size:12px;
 }
 
 .service-name{
-  font-size:clamp(24px,3vw,45px);
-  font-weight:700;
-  letter-spacing:-.04em;
-}
+    font-size:clamp(30px,5vw,70px);
+    font-weight:600;
+    letter-spacing:-3px;
 
-.service-desc{
-  color:#666;
-  font-size:13px;
-  line-height:1.6;
-  max-width:350px;
+    transition:.4s ease;
 }
 
 .service-arrow{
-  font-size:25px;
-  transition:.3s;
+    font-size:25px;
+    color:#555;
+
+    transition:.4s ease;
+}
+
+.service:hover .service-name{
+    transform:translateX(20px);
 }
 
 .service:hover .service-arrow{
-  transform:translate(8px,-8px);
+    color:#fff;
+    transform:translateX(-10px);
 }
 
 /* =========================
@@ -573,67 +452,26 @@ section{
 ========================= */
 
 .about{
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  overflow:hidden;
+    min-height:80vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    border-top:1px solid #181818;
 }
 
-.about-big{
-  font-size:clamp(70px,14vw,190px);
-  font-weight:900;
-  line-height:.78;
-  letter-spacing:-.09em;
-  white-space:nowrap;
-  transform:translateX(-8%);
-  color:#151515;
-  transition:transform 1s cubic-bezier(.16,1,.3,1);
+.about-text{
+    font-size:clamp(35px,6vw,85px);
+    line-height:1;
+    font-weight:600;
+    letter-spacing:-4px;
+
+    max-width:1200px;
 }
 
-.about:hover .about-big{
-  transform:translateX(-3%);
-}
-
-.about-copy{
-  max-width:620px;
-  margin:90px 0 0 auto;
-}
-
-.about-copy p{
-  font-size:clamp(21px,2.3vw,34px);
-  line-height:1.25;
-  letter-spacing:-.035em;
-}
-
-.about-copy p span{
-  color:#555;
-}
-
-/* =========================
-   SKILLS
-========================= */
-
-.skill-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:40px;
-}
-
-.skill{
-  border:1px solid #292929;
-  padding:12px 17px;
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  letter-spacing:1px;
-  color:#777;
-  transition:.3s;
-}
-
-.skill:hover{
-  color:#fff;
-  border-color:#777;
+.about-text span{
+    color:#555;
 }
 
 /* =========================
@@ -641,91 +479,83 @@ section{
 ========================= */
 
 .contact{
-  min-height:100vh;
-  padding:150px 5vw 70px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  overflow:hidden;
+    min-height:90vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    border-top:1px solid #181818;
+}
+
+.contact-small{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:4px;
+    color:#666;
+
+    margin-bottom:35px;
 }
 
 .contact-title{
-  font-size:clamp(70px,13vw,190px);
-  font-weight:900;
-  letter-spacing:-.09em;
-  line-height:.8;
-}
+    font-size:clamp(50px,10vw,150px);
+    line-height:.85;
 
-.contact-title span{
-  color:#555;
-}
+    font-weight:800;
+    letter-spacing:-7px;
 
-.contact-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
+    margin-bottom:60px;
 }
 
 .contact-email{
-  color:#fff;
-  text-decoration:none;
-  font-size:clamp(20px,3vw,40px);
-  letter-spacing:-.04em;
-  border-bottom:1px solid #555;
-  padding-bottom:8px;
-  transition:.3s;
+    font-family:"DM Mono",monospace;
+
+    font-size:clamp(15px,2vw,22px);
+
+    color:#aaa;
+    text-decoration:none;
+
+    border-bottom:1px solid #555;
+
+    padding-bottom:10px;
+
+    transition:.3s ease;
 }
 
 .contact-email:hover{
-  border-color:#fff;
+    color:#fff;
+    border-color:#fff;
 }
 
-.contact-details{
-  font-family:"DM Mono",monospace;
-  font-size:10px;
-  line-height:2;
-  color:#666;
-  text-align:right;
+.contact-phone{
+    margin-top:25px;
+
+    font-family:"DM Mono",monospace;
+    font-size:13px;
+
+    color:#666;
 }
 
-.contact-orb{
-  position:absolute;
-  width:260px;
-  height:260px;
-  right:10%;
-  top:35%;
-  border:1px solid #333;
-  border-radius:50%;
-  animation:orb 8s linear infinite;
-}
+/* =========================
+   FOOTER
+========================= */
 
-.contact-orb::before,
-.contact-orb::after{
-  content:"";
-  position:absolute;
-  inset:20px;
-  border:1px solid #222;
-  border-radius:50%;
-}
+footer{
+    padding:30px 7vw;
 
-.contact-orb::after{
-  inset:55px;
-  border-color:#444;
-}
+    border-top:1px solid #181818;
 
-@keyframes orb{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
-}
+    display:flex;
+    justify-content:space-between;
 
-.footer{
-  border-top:1px solid #222;
-  padding-top:25px;
-  display:flex;
-  justify-content:space-between;
-  font-family:"DM Mono",monospace;
-  font-size:9px;
-  color:#555;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:2px;
+
+    color:#555;
 }
 
 /* =========================
@@ -733,164 +563,114 @@ section{
 ========================= */
 
 .reveal{
-  opacity:0;
-  transform:translateY(60px);
-  transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(.16,1,.3,1);
+    opacity:0;
+    transform:translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* =========================
-   HOVER CURSOR
-========================= */
-
-a:hover ~ .cursor-ring,
-.project:hover ~ .cursor-ring{
-  width:60px;
-  height:60px;
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width:800px){
+@media(max-width:768px){
 
-  body{
-    cursor:auto;
-  }
+    body{
+        cursor:auto;
+    }
 
-  .cursor,
-  .cursor-ring,
-  .cursor-glow{
-    display:none;
-  }
+    .cursor-dot,
+    .cursor-ring,
+    .cursor-glow{
+        display:none;
+    }
 
-  nav{
-    height:70px;
-    padding:0 22px;
-  }
+    nav{
+        height:70px;
+        padding:0 20px;
+    }
 
-  .nav-links{
-    gap:15px;
-  }
+    .nav-links{
+        gap:15px;
+    }
 
-  .nav-links a{
-    font-size:9px;
-  }
+    .nav-links a{
+        font-size:9px;
+    }
 
-  .hero{
-    min-height:100svh;
-    padding:120px 22px 50px;
-  }
+    .hero{
+        padding:120px 20px 60px;
+    }
 
-  .hero-title{
-    font-size:18vw;
-  }
+    .hero-title{
+        font-size:18vw;
+        letter-spacing:-4px;
+    }
 
-  .hero-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:35px;
-  }
+    .hero-title .small-line{
+        letter-spacing:-1px;
+    }
 
-  .section{
-    padding:100px 22px;
-  }
+    .hero-bottom{
+        margin-top:50px;
+        font-size:9px;
+    }
 
-  .section-top{
-    margin-bottom:60px;
-  }
+    section{
+        padding:100px 20px;
+    }
 
-  .projects{
-    gap:100px;
-  }
+    .section-label{
+        margin-bottom:50px;
+    }
 
-  .project{
-    min-height:auto;
-    display:block;
-  }
+    .project{
+        margin-bottom:120px;
+    }
 
-  .project-image,
-  .project:nth-child(2) .project-image,
-  .project:nth-child(3) .project-image{
-    width:100%;
-    transform:none;
-  }
+    .project-gallery{
+        gap:25px;
+    }
 
-  .project.visible .project-image,
-  .project:nth-child(2).visible .project-image,
-  .project:nth-child(3).visible .project-image{
-    transform:none;
-  }
+    .project-image{
+        width:100%;
+    }
 
-  .project-info,
-  .project:nth-child(even) .project-info{
-    position:relative;
-    left:auto;
-    right:auto;
-    bottom:auto;
-    text-align:left;
-    margin-top:25px;
-  }
+    .service{
+        gap:15px;
+    }
 
-  .project::before{
-    display:none;
-  }
+    .service-name{
+        font-size:30px;
+        letter-spacing:-1.5px;
+    }
 
-  .service{
-    grid-template-columns:35px 1fr 25px;
-  }
+    .service-arrow{
+        font-size:18px;
+    }
 
-  .service-desc{
-    display:none;
-  }
+    .about-text{
+        font-size:11vw;
+        letter-spacing:-2px;
+    }
 
-  .about{
-    min-height:auto;
-    padding-top:120px;
-    padding-bottom:120px;
-  }
+    .contact-title{
+        font-size:17vw;
+        letter-spacing:-4px;
+    }
 
-  .about-big{
-    font-size:24vw;
-  }
+    footer{
+        padding:25px 20px;
+        font-size:8px;
+    }
 
-  .about-copy{
-    margin-top:60px;
-  }
-
-  .contact{
-    min-height:90svh;
-    padding:110px 22px 40px;
-  }
-
-  .contact-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:40px;
-  }
-
-  .contact-details{
-    text-align:left;
-  }
-
-  .contact-orb{
-    width:150px;
-    height:150px;
-    right:-40px;
-    top:42%;
-  }
-
-  .footer{
-    flex-direction:column;
-    gap:10px;
-  }
 }
 
 </style>
@@ -898,351 +678,283 @@ a:hover ~ .cursor-ring,
 
 <body>
 
-<div class="cursor"></div>
+<!-- CURSOR -->
+
+<div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 <div class="cursor-glow"></div>
 
-<div class="grid"></div>
-<div class="noise"></div>
 
 <!-- NAV -->
 
 <nav>
 
-  <div class="logo">
-    ANKIT<span>.</span>
-  </div>
+    <div class="logo">
+        ANKIT.
+    </div>
 
-  <div class="nav-links">
-    <a href="#work">WORK</a>
-    <a href="#services">SERVICES</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
-  </div>
+    <div class="nav-links">
+        <a href="#work">WORK</a>
+        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </div>
 
 </nav>
 
 
 <!-- HERO -->
 
-<section class="hero">
+<header class="hero">
 
-  <div class="hero-small">
-    VISUAL DESIGNER / INDIA
-  </div>
-
-  <h1 class="hero-title">
-
-    <span class="hero-line">
-      <span>I MAKE</span>
-    </span>
-
-    <span class="hero-line">
-      <span class="gradient-word">VISUALS</span>
-    </span>
-
-    <span class="hero-line">
-      <span>THAT MOVE.</span>
-    </span>
-
-  </h1>
-
-  <div class="hero-bottom">
-
-    <p class="hero-description">
-      Graphic designer creating bold visual identities,
-      digital experiences, social content and product
-      visuals that don't get ignored.
-    </p>
-
-    <div class="scroll-indicator">
-      SCROLL TO EXPLORE
-      <div class="scroll-line"></div>
+    <div class="hero-small">
+        VISUAL DESIGNER / 2026
     </div>
 
-  </div>
+    <h1 class="hero-title">
 
-</section>
+        <span class="small-line">
+            I MAKE
+        </span>
+
+        <span class="gradient-word">
+            VISUALS
+        </span>
+
+        <span>
+            THAT MOVE.
+        </span>
+
+    </h1>
+
+    <div class="hero-bottom">
+
+        <div>
+            GRAPHIC DESIGN<br>
+            BRANDING / DIGITAL
+        </div>
+
+        <div class="scroll-line">
+            <span></span>
+            SCROLL TO EXPLORE
+        </div>
+
+    </div>
+
+</header>
 
 
 <!-- MARQUEE -->
 
 <div class="marquee">
 
-  <div class="marquee-track">
+    <div class="marquee-track">
 
-    <span><strong>GRAPHIC DESIGN</strong></span>
-    <span>BRANDING</span>
-    <span>PRODUCT VISUALS</span>
-    <span>SOCIAL MEDIA</span>
-    <span>ADVERTISING</span>
-    <span><strong>GRAPHIC DESIGN</strong></span>
-    <span>BRANDING</span>
-    <span>PRODUCT VISUALS</span>
-    <span>SOCIAL MEDIA</span>
-    <span>ADVERTISING</span>
+        GRAPHIC DESIGN ✦ BRANDING ✦ SOCIAL MEDIA ✦ PRODUCT DESIGN ✦ ADVERTISING ✦
+        GRAPHIC DESIGN ✦ BRANDING ✦ SOCIAL MEDIA ✦ PRODUCT DESIGN ✦ ADVERTISING ✦
 
-  </div>
+    </div>
 
 </div>
 
 
 <!-- WORK -->
 
-<section class="section work" id="work">
+<section id="work">
 
-  <div class="section-top reveal">
-
-    <div class="section-number">
-      01 / SELECTED WORK
-    </div>
-
-    <h2 class="section-title">
-      Things<br>
-      I've made.
-    </h2>
-
-  </div>
-
-
-  <div class="projects">
-
-
-    <!-- PROJECT 01 -->
-
-    <div class="project reveal">
-
-      <div class="project-image">
-
-        <img
-          src="coffe cup logo-1.jpg"
-          alt="Coffee Cup Branding"
-        >
-
-      </div>
-
-      <div class="project-info">
-
-        <div class="project-number">
-          01 — BRANDING
-        </div>
-
-        <div class="project-name">
-          Coffee<br>Cup
-        </div>
-
-        <div class="project-type">
-          BRAND IDENTITY
-          <span class="project-arrow">↗</span>
-        </div>
-
-      </div>
-
+    <div class="section-label reveal">
+        SELECTED WORK / 01
     </div>
 
 
-    <!-- PROJECT 02 -->
+    <div class="work">
 
-    <div class="project reveal">
 
-      <div class="project-image">
+        <!-- COFFEE CUP -->
 
-        <img
-          src="mokawai_box_designe-1.jpg"
-          alt="Mokawai Box Design"
-        >
+        <div class="project">
 
-      </div>
+            <div class="project-gallery">
 
-      <div class="project-info">
+                <div class="project-image">
+                    <img
+                        src="coffe cup logo-1.jpg"
+                        alt="Coffee Cup Design 1"
+                    >
+                </div>
 
-        <div class="project-number">
-          02 — PACKAGING
+                <div class="project-image">
+                    <img
+                        src="coffe cup logo-2.jpg"
+                        alt="Coffee Cup Design 2"
+                    >
+                </div>
+
+                <div class="project-image">
+                    <img
+                        src="coffe cup logo-3.jpg"
+                        alt="Coffee Cup Design 3"
+                    >
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="project-name">
-          Mokawai<br>Box
+
+        <!-- MOKAWAI -->
+
+        <div class="project">
+
+            <div class="project-gallery">
+
+                <div class="project-image">
+                    <img
+                        src="mokawai_box_designe-1.jpg"
+                        alt="Mokawai Box Design 1"
+                    >
+                </div>
+
+                <div class="project-image">
+                    <img
+                        src="mokawai_box_designe-2.jpg"
+                        alt="Mokawai Box Design 2"
+                    >
+                </div>
+
+                <div class="project-image">
+                    <img
+                        src="mokawai_box_designe-3.jpg"
+                        alt="Mokawai Box Design 3"
+                    >
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="project-type">
-          PRODUCT DESIGN
-          <span class="project-arrow">↗</span>
+
+        <!-- INSTAGRAM POSTER -->
+
+        <div class="project">
+
+            <div class="project-gallery">
+
+                <div class="project-image">
+                    <img
+                        src="insta poster.jpg"
+                        alt="Instagram Poster Design"
+                    >
+                </div>
+
+            </div>
+
         </div>
 
-      </div>
 
     </div>
-
-
-    <!-- PROJECT 03 -->
-
-    <div class="project reveal">
-
-      <div class="project-image">
-
-        <img
-          src="insta poster.jpg"
-          alt="Instagram Poster Design"
-        >
-
-      </div>
-
-      <div class="project-info">
-
-        <div class="project-number">
-          03 — DIGITAL
-        </div>
-
-        <div class="project-name">
-          Social<br>Visuals
-        </div>
-
-        <div class="project-type">
-          SOCIAL MEDIA
-          <span class="project-arrow">↗</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
 
 <!-- SERVICES -->
 
-<section class="section services" id="services">
+<section class="services" id="services">
 
-  <div class="section-top reveal">
-
-    <div class="section-number">
-      02 / WHAT I DO
+    <div class="section-label reveal">
+        WHAT I DO / 02
     </div>
 
-    <h2 class="section-title">
-      Design<br>with purpose.
-    </h2>
+    <div class="service-list">
 
-  </div>
+        <div class="service reveal">
 
+            <div class="service-number">
+                01
+            </div>
 
-  <div class="service-list">
+            <div class="service-name">
+                Social Media
+            </div>
 
-    <div class="service reveal">
+            <div class="service-arrow">
+                ↗
+            </div>
 
-      <div class="service-num">01</div>
-
-      <div class="service-name">
-        Social Media
-      </div>
-
-      <div class="service-desc">
-        Scroll-stopping visuals, campaigns,
-        posts and digital content.
-      </div>
-
-      <div class="service-arrow">↗</div>
-
-    </div>
+        </div>
 
 
-    <div class="service reveal">
+        <div class="service reveal">
 
-      <div class="service-num">02</div>
+            <div class="service-number">
+                02
+            </div>
 
-      <div class="service-name">
-        Advertising
-      </div>
+            <div class="service-name">
+                Advertising
+            </div>
 
-      <div class="service-desc">
-        Visual concepts designed to communicate
-        quickly and clearly.
-      </div>
+            <div class="service-arrow">
+                ↗
+            </div>
 
-      <div class="service-arrow">↗</div>
-
-    </div>
-
-
-    <div class="service reveal">
-
-      <div class="service-num">03</div>
-
-      <div class="service-name">
-        Branding
-      </div>
-
-      <div class="service-desc">
-        Logos, visual systems and identities
-        built to stay recognizable.
-      </div>
-
-      <div class="service-arrow">↗</div>
-
-    </div>
+        </div>
 
 
-    <div class="service reveal">
+        <div class="service reveal">
 
-      <div class="service-num">04</div>
+            <div class="service-number">
+                03
+            </div>
 
-      <div class="service-name">
-        Product Design
-      </div>
+            <div class="service-name">
+                Branding
+            </div>
 
-      <div class="service-desc">
-        Packaging, mockups and product visuals
-        made to look real.
-      </div>
+            <div class="service-arrow">
+                ↗
+            </div>
 
-      <div class="service-arrow">↗</div>
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                04
+            </div>
+
+            <div class="service-name">
+                Product Design
+            </div>
+
+            <div class="service-arrow">
+                ↗
+            </div>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
 <!-- ABOUT -->
 
-<section class="section about" id="about">
+<section class="about" id="about">
 
-  <div class="section-number reveal">
-    03 / ABOUT ME
-  </div>
-
-  <div class="about-big reveal">
-    DESIGN<br>
-    THAT<br>
-    MOVES.
-  </div>
-
-
-  <div class="about-copy reveal">
-
-    <p>
-      I'm Ankit — a graphic designer with
-      <span>5+ years of experience</span>
-      turning ideas into visual systems,
-      digital content and product experiences.
-    </p>
-
-
-    <div class="skill-row">
-
-      <div class="skill">PHOTOSHOP</div>
-      <div class="skill">ILLUSTRATOR</div>
-      <div class="skill">BRANDING</div>
-      <div class="skill">PACKAGING</div>
-      <div class="skill">SOCIAL MEDIA</div>
-      <div class="skill">MOCKUPS</div>
-
+    <div class="section-label reveal">
+        ABOUT ME / 03
     </div>
 
-  </div>
+    <div class="about-text reveal">
+
+        I CREATE <span>VISUAL IDENTITIES</span>,
+        DIGITAL EXPERIENCES AND
+        DESIGN THAT MAKES PEOPLE
+        <span>STOP AND LOOK.</span>
+
+    </div>
 
 </section>
 
@@ -1251,58 +963,42 @@ a:hover ~ .cursor-ring,
 
 <section class="contact" id="contact">
 
-  <div>
-
-    <div class="section-number reveal">
-      04 / CONTACT
+    <div class="contact-small reveal">
+        HAVE A PROJECT IN MIND?
     </div>
 
-    <h2 class="contact-title reveal">
-
-      LET'S<br>
-      <span>MAKE</span><br>
-      SOMETHING.
-
-    </h2>
-
-  </div>
-
-
-  <div class="contact-orb"></div>
-
-
-  <div class="contact-bottom reveal">
+    <div class="contact-title reveal">
+        LET'S<br>
+        CREATE.
+    </div>
 
     <a
-      class="contact-email"
-      href="mailto:pandeyankit78462@gmail.com"
+        class="contact-email reveal"
+        href="mailto:pandeyankit78462@gmail.com"
     >
-      pandeyankit78462@gmail.com ↗
+        pandeyankit78462@gmail.com
     </a>
 
-
-    <div class="contact-details">
-
-      AVAILABLE FOR FREELANCE<br>
-      INDIA / REMOTE<br>
-      +91 95945 70052
-
+    <div class="contact-phone reveal">
+        +91 95945 70052
     </div>
 
-  </div>
-
-
-  <div class="footer">
-
-    <span>© 2026 ANKIT PANDey</span>
-
-    <span>
-      DESIGNED & BUILT BY ANKIT
-    </span>
-
-  </div>
-
 </section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        ANKIT PANDEY
+    </div>
+
+    <div>
+        © 2026
+    </div>
+
+</footer>
 
 
 <script>
@@ -1311,38 +1007,39 @@ a:hover ~ .cursor-ring,
    CURSOR
 ========================= */
 
-const cursor = document.querySelector(".cursor");
+const dot = document.querySelector(".cursor-dot");
 const ring = document.querySelector(".cursor-ring");
 const glow = document.querySelector(".cursor-glow");
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+let mouseX = 0;
+let mouseY = 0;
 
-let ringX = mouseX;
-let ringY = mouseY;
+let ringX = 0;
+let ringY = 0;
 
-document.addEventListener("mousemove", e => {
+document.addEventListener("mousemove", (e)=>{
 
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-  cursor.style.left = mouseX + "px";
-  cursor.style.top = mouseY + "px";
+    dot.style.left = mouseX + "px";
+    dot.style.top = mouseY + "px";
 
-  glow.style.left = mouseX + "px";
-  glow.style.top = mouseY + "px";
+    glow.style.left = mouseX + "px";
+    glow.style.top = mouseY + "px";
 
 });
 
+
 function animateCursor(){
 
-  ringX += (mouseX - ringX) * .12;
-  ringY += (mouseY - ringY) * .12;
+    ringX += (mouseX - ringX) * .15;
+    ringY += (mouseY - ringY) * .15;
 
-  ring.style.left = ringX + "px";
-  ring.style.top = ringY + "px";
+    ring.style.left = ringX + "px";
+    ring.style.top = ringY + "px";
 
-  requestAnimationFrame(animateCursor);
+    requestAnimationFrame(animateCursor);
 
 }
 
@@ -1353,27 +1050,27 @@ animateCursor();
    CURSOR HOVER
 ========================= */
 
-const hoverItems = document.querySelectorAll(
-  "a, .project, .service, .skill"
+const hoverElements = document.querySelectorAll(
+    "a, .project-image, .service"
 );
 
-hoverItems.forEach(item => {
+hoverElements.forEach(el => {
 
-  item.addEventListener("mouseenter", () => {
+    el.addEventListener("mouseenter", ()=>{
 
-    ring.style.width = "65px";
-    ring.style.height = "65px";
-    ring.style.borderColor = "rgba(255,255,255,.9)";
+        ring.style.width = "55px";
+        ring.style.height = "55px";
+        ring.style.borderColor = "rgba(255,255,255,.8)";
 
-  });
+    });
 
-  item.addEventListener("mouseleave", () => {
+    el.addEventListener("mouseleave", ()=>{
 
-    ring.style.width = "38px";
-    ring.style.height = "38px";
-    ring.style.borderColor = "rgba(255,255,255,.5)";
+        ring.style.width = "34px";
+        ring.style.height = "34px";
+        ring.style.borderColor = "rgba(255,255,255,.5)";
 
-  });
+    });
 
 });
 
@@ -1383,61 +1080,48 @@ hoverItems.forEach(item => {
 ========================= */
 
 const observer = new IntersectionObserver(
-  entries => {
 
-    entries.forEach(entry => {
+    entries => {
 
-      if(entry.isIntersecting){
+        entries.forEach(entry => {
 
-        entry.target.classList.add("visible");
+            if(entry.isIntersecting){
 
-      }
+                entry.target.classList.add("visible");
 
-    });
+            }
 
-  },
-  {
-    threshold:.12
-  }
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
 );
 
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
+
+document
+    .querySelectorAll(".reveal, .project-image")
+    .forEach(el => observer.observe(el));
 
 
 /* =========================
-   MOUSE PARALLAX
+   HERO PARALLAX
 ========================= */
 
-const projectImages =
-  document.querySelectorAll(".project-image");
+const heroTitle = document.querySelector(".hero-title");
 
-document.addEventListener("mousemove", e => {
+document.addEventListener("mousemove",(e)=>{
 
-  const x =
-    (e.clientX / window.innerWidth - .5) * 2;
+    if(!heroTitle) return;
 
-  const y =
-    (e.clientY / window.innerHeight - .5) * 2;
+    const x = (e.clientX / window.innerWidth - .5) * 10;
+    const y = (e.clientY / window.innerHeight - .5) * 10;
 
-  projectImages.forEach((image,index) => {
-
-    if(window.innerWidth > 800){
-
-      const amount =
-        index === 0 ? 5 :
-        index === 1 ? -4 : 3;
-
-      image.style.marginLeft =
-        `${x * amount}px`;
-
-      image.style.marginTop =
-        `${y * amount}px`;
-
-    }
-
-  });
+    heroTitle.style.transform =
+        `translate(${x}px, ${y}px)`;
 
 });
 
@@ -1446,71 +1130,60 @@ document.addEventListener("mousemove", e => {
    NAV SCROLL
 ========================= */
 
-document.querySelectorAll("nav a").forEach(link => {
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-  link.addEventListener("click", e => {
+    link.addEventListener("click", function(e){
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const target =
-      document.querySelector(
-        link.getAttribute("href")
-      );
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
 
-    target.scrollIntoView({
-      behavior:"smooth"
+        if(target){
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
     });
 
-  });
-
 });
 
 
 /* =========================
-   TITLE MOUSE MOVEMENT
+   IMAGE PARALLAX
 ========================= */
 
-const heroTitle =
-  document.querySelector(".hero-title");
+document
+.querySelectorAll(".project-image")
+.forEach(image => {
 
-document.addEventListener("mousemove", e => {
+    image.addEventListener("mousemove",(e)=>{
 
-  if(window.innerWidth < 800) return;
+        const rect = image.getBoundingClientRect();
 
-  const x =
-    (e.clientX / window.innerWidth - .5);
+        const x =
+            (e.clientX - rect.left) /
+            rect.width - .5;
 
-  const y =
-    (e.clientY / window.innerHeight - .5);
+        const y =
+            (e.clientY - rect.top) /
+            rect.height - .5;
 
-  heroTitle.style.transform =
-    `translate(${x * 8}px, ${y * 5}px)`;
+        image.querySelector("img").style.transform =
+            `scale(1.025) translate(${x * 5}px, ${y * 5}px)`;
 
-});
+    });
 
+    image.addEventListener("mouseleave",()=>{
 
-/* =========================
-   CONTACT ORB
-========================= */
+        image.querySelector("img").style.transform =
+            "scale(1) translate(0,0)";
 
-const orb =
-  document.querySelector(".contact-orb");
-
-document.addEventListener("mousemove", e => {
-
-  if(window.innerWidth < 800) return;
-
-  const x =
-    (e.clientX / window.innerWidth - .5);
-
-  const y =
-    (e.clientY / window.innerHeight - .5);
-
-  orb.style.marginLeft =
-    `${x * 25}px`;
-
-  orb.style.marginTop =
-    `${y * 25}px`;
+    });
 
 });
 
